@@ -63,7 +63,7 @@ webpack.config.js 新增 plugins
 }
 ```
 
-## package.json 增加 scripts
+## 5.package.json 增加 scripts
 
 ```js
 "scripts": {
@@ -76,7 +76,7 @@ webpack.config.js 新增 plugins
 
 接下来需要加上 `react`
 
-## 5.增加 react 及 babel-loader
+## 6.增加 react 及 babel-loader 等三方库
 
 ```shell
 yarn add react react-dom
@@ -103,7 +103,7 @@ module: {
 }
 ```
 
-## 6.src 目录增加 index.jsx 文件
+## 7.src 目录新建 index.jsx 文件
 
 index.jsx
 
@@ -128,7 +128,7 @@ webpack.config.js 修改入口文件
 }
 ```
 
-## 7.跟目录新建 .babelrc 文件
+## 8.跟目录新建 .babelrc 文件
 
 ```js
 {
