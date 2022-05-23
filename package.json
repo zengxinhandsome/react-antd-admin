@@ -1,0 +1,12 @@
+{
+  "name": "react-antd-admin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^18.1.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.72.0"
+  }
+}
