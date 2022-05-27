@@ -12,9 +12,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   resolve: {
-    // alias: {
-    //   'react-dom': '@hot-loader/react-dom'
-    // },
     extensions: ['.tsx', '.js', '.json', '.jsx']
   },
   devServer: {
