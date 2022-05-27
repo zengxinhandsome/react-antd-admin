@@ -136,5 +136,36 @@ webpack.config.js 修改入口文件
 }
 ```
 
-## 8.react 配置完成，`yarn start` 打开 `http://localhost:8080/` 就可以看到 hello react 了
+## 9.react 配置完成，`yarn start` 打开 `http://localhost:8080/` 就可以看到 hello react 了
+
+## 10.增加 TypeScript
+
+- babel-loader： 编译 ES6 + [jt]sx
+
+如果已经使用 babel-loader 的情况下，配合 @babel/preset-typescript 就可以编译 ts，不需要 ts-loader
+
+https://webpack.js.org/guides/typescript/#:~:text=Note%20that%20if,any%20type%20checking.
+
+- `[fork-ts-checker-webpack-plugin](https://github.com/TypeStrong/fork-ts-checker-webpack-plugin)
+  tsx 类型检查
+
+### 速度提升
+
+babel-loader + ts-loader：5000ms
+
+babel-loader + fork-ts-checker-webpack-plugin 3800ms
+
+## 11 增加 HMR
+
+解决方案：
+
+- [React Refresh Webpack Plugin](https://github.com/pmmmwh/react-refresh-webpack-plugin)
+
+支持 react hooks 热更新，支持 react 18+
+
+- [React Hot Loader](https://github.com/gaearon/react-hot-loader#hot-loaderreact-dom)
+
+支持 react hooks 热更新，但是不支持 react 18，并且官方表示后续也不会计划支持：https://github.com/gaearon/react-hot-loader/issues/1808
+
+所以最终选择 React Refresh Webpack Plugin
 

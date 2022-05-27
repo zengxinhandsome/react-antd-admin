@@ -1,9 +1,17 @@
 import * as React from 'react';
-import { FC } from 'react';
-import './style/index.css';
+import { FC, useState } from 'react';
+// import './style/index.css';
+import { Button } from 'antd';
 
 const App: FC = () => {
-  return <div className="box">hello react</div>;
+  const [count, setCount] = useState<number>(2222);
+
+  return (
+    <div className="box">
+      count: {count}
+      <Button type="primary">czczxczc</Button>
+    </div>
+  );
 };
 
 export default App;

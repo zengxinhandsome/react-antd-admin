@@ -1,12 +1,20 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
+  mode: isDevelopment ? 'development' : 'production',
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, 'dist')
   },
   resolve: {
+    // alias: {
+    //   'react-dom': '@hot-loader/react-dom'
+    // },
     extensions: ['.tsx', '.js', '.json', '.jsx']
   },
   devServer: {
@@ -20,22 +28,22 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.m?jsx?$/,
+        test: /\.m?[jt]sx?$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
+            presets: ['@babel/preset-env'],
+            plugins: [isDevelopment && require.resolve('react-refresh/babel')].filter(Boolean)
           }
         }
-      },
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
       }
     ]
   },
-  plugins: [new HtmlWebpackPlugin({ template: './public/index.html' })]
+  plugins: [
+    new HtmlWebpackPlugin({ template: './public/index.html' }),
+    isDevelopment && new ForkTsCheckerWebpackPlugin(),
+    isDevelopment && new ReactRefreshWebpackPlugin()
+  ].filter(Boolean)
 };
 
