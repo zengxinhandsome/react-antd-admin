@@ -17,7 +17,7 @@ module.exports = {
   devServer: {
     hot: true
   },
-  stats: 'errors-only',
+  stats: 'minimal',
   module: {
     rules: [
       {
