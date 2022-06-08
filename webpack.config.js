@@ -12,17 +12,28 @@ module.exports = {
     path: path.resolve(__dirname, 'dist')
   },
   resolve: {
-    extensions: ['.tsx', '.js', '.json', '.jsx']
+    alias: {
+      '@': path.resolve(__dirname, './src')
+    },
+    extensions: ['.tsx', '.ts', '.scss', '.css', '.js', '.json', '.jsx']
   },
   devServer: {
-    hot: true
+    hot: true,
+    historyApiFallback: true  // fix reload page cannot get [url]
   },
   stats: 'minimal',
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        test: /\.s[ac]ss|css$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          'style-loader',
+          // Translates CSS into CommonJS
+          'css-loader',
+          // Compiles Sass to CSS
+          'sass-loader'
+        ]
       },
       {
         test: /\.m?[jt]sx?$/,
@@ -31,6 +42,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env'],
+            // HMR
             plugins: [isDevelopment && require.resolve('react-refresh/babel')].filter(Boolean)
           }
         }

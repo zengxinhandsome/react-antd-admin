@@ -1,16 +1,12 @@
-import * as React from 'react';
-import { FC, useState } from 'react';
-// import './style/index.css';
-import { Button } from 'antd';
+import React, { FC } from 'react';
+import { BrowserRouter, HashRouter } from 'react-router-dom';
+import { RenderRouter } from './router';
 
 const App: FC = () => {
-  const [count, setCount] = useState<number>(2222);
-
   return (
-    <div className="box">
-      count: {count}
-      <Button type="primary">czczxczc</Button>
-    </div>
+    <BrowserRouter>
+      <RenderRouter />
+    </BrowserRouter>
   );
 };
 
