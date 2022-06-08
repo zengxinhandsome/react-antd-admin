@@ -14,11 +14,11 @@ import './index';
 const BasicLayout = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (location.pathname === '/') {
-      navigate('/dashboard');
-    }
-  }, [navigate, location]);
+  // useEffect(() => {
+  //   if (location.pathname === '/') {
+  //     navigate('/dashboard');
+  //   }
+  // }, [navigate, location]);
 
   const [collapsed, setCollapsed] = useState(false);
   return (
@@ -38,12 +38,12 @@ const BasicLayout = () => {
             {
               key: '2',
               icon: <VideoCameraOutlined />,
-              label: 'nav 2'
+              label: <Link to={'/component/table'}>component table</Link>
             },
             {
               key: '3',
               icon: <UploadOutlined />,
-              label: 'nav 3'
+              label: <Link to={'/component/form'}>component form</Link>
             }
           ]}
         />

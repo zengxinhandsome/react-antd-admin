@@ -4,9 +4,9 @@ import { RenderRouter } from './router';
 
 const App: FC = () => {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <RenderRouter />
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 
