@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/index.scss'
 
-const num = 111;
+const num: number = 111;
 
 console.log('num',   num);
 
